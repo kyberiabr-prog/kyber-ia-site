@@ -209,5 +209,40 @@ async function send() {
 <!-- WhatsApp -->
 <a class="whatsapp" href="https://wa.me/5561996583228" target="_blank">💬</a>
 
+  <!-- Formulário -->
+<section style="padding: 60px 20px; background: #0f172a; color: white;">
+  <h2 style="text-align:center; font-size: 32px; margin-bottom: 20px;">
+    Fale com a gente
+  </h2>
+
+  <form action="https://formspree.io/f/xnjgwlgz" method="POST" 
+        style="max-width: 500px; margin: auto; display: flex; flex-direction: column; gap: 15px;">
+
+    <input type="text" name="nome" placeholder="Seu nome" required 
+      style="padding:12px; border-radius:8px; border:none;">
+
+    <input type="email" name="email" placeholder="Seu e-mail" required 
+      style="padding:12px; border-radius:8px; border:none;">
+
+    <input type="text" name="whatsapp" placeholder="Seu WhatsApp" 
+      style="padding:12px; border-radius:8px; border:none;">
+
+    <textarea name="mensagem" placeholder="Como podemos te ajudar?" required
+      style="padding:12px; border-radius:8px; border:none;"></textarea>
+
+    <button type="submit" style="
+      padding: 14px;
+      background: #22c55e;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    ">
+      Enviar mensagem
+    </button>
+  </form>
+</section>
+  
 </body>
 </html>
