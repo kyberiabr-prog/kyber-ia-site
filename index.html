@@ -126,12 +126,17 @@ footer {
 async function send() {
   const msg = document.getElementById("msg").value;
 
-  const res = await fetch("https://kyber-ia-site.vercel.app/api/chat", {
+  const res = await fetch("https://script.google.com/macros/s/AKfycbzzVytQlWqLBSYVwWNxu9Ny4exgA9yq6eSrNe-gY1upBYmIZfTtfu36QILNlbiGx1Kt/exec", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify({ message: msg })
+    body: JSON.stringify({
+      nome: "Site Kyber",
+      email: "lead@kyber.ia.br",
+      whatsapp: "",
+      mensagem: msg
+    })
   });
 
   const data = await res.json();
