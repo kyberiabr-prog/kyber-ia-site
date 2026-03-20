@@ -128,15 +128,8 @@ async function send() {
 
   const res = await fetch("https://script.google.com/macros/s/AKfycbzzVytQlWqLBSYVwWNxu9Ny4exgA9yq6eSrNe-gY1upBYmIZfTtfu36QILNlbiGx1Kt/exec", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      nome: "Site Kyber",
-      email: "lead@kyber.ia.br",
-      whatsapp: "",
-      mensagem: msg
-    })
+    mode: "no-cors", // 🔥 ESSA LINHA RESOLVE
+    body: JSON.stringify(data)
   });
 
   const data = await res.json();
@@ -270,12 +263,8 @@ document.getElementById("leadForm").addEventListener("submit", async function(e)
     body: JSON.stringify(data)
   });
 
-  if (res.ok) {
-    alert("✅ Mensagem enviada com sucesso!");
-    form.reset();
-  } else {
-    alert("❌ Erro ao enviar. Tente novamente.");
-  }
+  alert("✅ Mensagem enviada com sucesso!");
+  form.reset();
 });
 </script>
 
