@@ -220,7 +220,7 @@ async function send() {
     Fale com a gente
   </h2>
 
-  <form action="https://formspree.io/f/xnjgwlgz" method="POST" 
+  <form id="leadForm"
         style="max-width: 500px; margin: auto; display: flex; flex-direction: column; gap: 15px;">
 
     <input type="text" name="nome" placeholder="Seu nome" required 
@@ -248,6 +248,36 @@ async function send() {
     </button>
   </form>
 </section>
-  
+
+<script>
+document.getElementById("leadForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const form = e.target;
+
+  const data = {
+    nome: form.nome.value,
+    email: form.email.value,
+    whatsapp: form.whatsapp.value,
+    mensagem: form.mensagem.value
+  };
+
+  const res = await fetch("https://script.google.com/macros/s/AKfycbzzVytQlWqLBSYVwWNxu9Ny4exgA9yq6eSrNe-gY1upBYmIZfTtfu36QILNlbiGx1Kt/exec", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  });
+
+  if (res.ok) {
+    alert("✅ Mensagem enviada com sucesso!");
+    form.reset();
+  } else {
+    alert("❌ Erro ao enviar. Tente novamente.");
+  }
+});
+</script>
+
 </body>
 </html>
