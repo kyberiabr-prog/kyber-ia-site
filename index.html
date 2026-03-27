@@ -8,6 +8,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
+
+section {
+  scroll-margin-top: 100px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+ 
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
@@ -15,17 +24,7 @@ body {
   color: white;
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 40px;
-  position: sticky;
-  top: 0;
-  background: rgba(10,15,28,0.8);
-  backdrop-filter: blur(10px);
-}
-
-header a {
+header > a {
   color: #00ff88;
   text-decoration: none;
 }
@@ -112,6 +111,60 @@ footer {
   text-decoration: none;
   font-size: 20px;
 }
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  position: sticky;
+  top: 0;
+  background: rgba(10,15,28,0.8);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.logo img {
+  height: 40px;
+}
+
+nav {
+  display: flex;
+  gap: 30px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav a:hover {
+  color: #7C3AED;
+}
+
+.actions {
+  display: flex;
+  gap: 15px;
+}
+
+.btn-primary {
+  background: #7C3AED;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.btn-outline {
+  border: 1px solid #7C3AED;
+  color: #7C3AED;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+}
 </style>
 </head>
 
@@ -123,26 +176,41 @@ footer {
 </div>
 -->
 <script>
+/*
 async function send() {
   const msg = document.getElementById("msg").value;
 
   const res = await fetch("https://script.google.com/macros/s/AKfycbzzVytQlWqLBSYVwWNxu9Ny4exgA9yq6eSrNe-gY1upBYmIZfTtfu36QILNlbiGx1Kt/exec", {
     method: "POST",
     mode: "no-cors", // 🔥 ESSA LINHA RESOLVE
-    body: JSON.stringify(data)
+    body: JSON.stringify({ message: msg })
   });
 
   const data = await res.json();
 
   alert(data.reply);
 }
+*/
 </script>
   
 <body>
 
 <header>
-  <strong>KYBER IA</strong>
-  <a href="#contato">Contato</a>
+  <div class="logo">
+    <img src="logo.png" alt="KYBER IA">
+  </div>
+
+  <nav>
+    <a href="#solucoes">Soluções</a>
+    <a href="#como-funciona">Como Funciona</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#faq">Perguntas Frequentes</a>
+  </nav>
+
+  <div class="actions">
+    <a class="btn-outline" href="#contato">Fale com a gente</a>
+    <a class="btn-primary" href="#contato">Ver demonstrações</a>
+  </div>
 </header>
 
 <section class="hero">
@@ -152,7 +220,7 @@ async function send() {
   <a class="btn" href="#contato">Fale com nossos especialista</a>
 </section>
 
-<section class="section">
+<section class="section" id="solucoes">
   <h2>Soluções</h2>
 
   <div class="cards">
@@ -173,8 +241,15 @@ async function send() {
   </div>
 </section>
 
+<section class="section" id="como-funciona">
+  <h2>Como Funciona</h2>
+  <p>Implementamos agentes de IA personalizados para automatizar processos, atendimento e geração de leads.</p>
+</section>
+
 <section class="section">
   <h2>Resultados</h2>
+  
+
 
   <div class="cards">
     <div class="card">
@@ -190,6 +265,32 @@ async function send() {
     <div class="card">
       <h3>24/7</h3>
       <p>Atendimento automático</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="sobre">
+  <h2>Sobre</h2>
+  <p>A Kyber IA é especializada em automação inteligente, ajudando empresas a escalar resultados com tecnologia.</p>
+</section>
+
+<section class="section" id="faq">
+  <h2>Perguntas Frequentes</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Preciso saber tecnologia?</h3>
+      <p>Não. Nós cuidamos de toda a implementação.</p>
+    </div>
+
+    <div class="card">
+      <h3>Funciona com WhatsApp?</h3>
+      <p>Sim, fazemos integração completa.</p>
+    </div>
+
+    <div class="card">
+      <h3>Quanto tempo leva?</h3>
+      <p>Projetos iniciais podem ficar prontos em poucos dias.</p>
     </div>
   </div>
 </section>
