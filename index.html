@@ -24,11 +24,6 @@ body {
   color: white;
 }
 
-header > a {
-  color: #7C3AED;
-  text-decoration: none;
-}
-
 .hero {
   text-align: center;
   padding: 120px 20px;
@@ -45,7 +40,7 @@ header > a {
 
 .btn {
   background: #7C3AED;
-  color: black;
+  color: white;
   padding: 14px 30px;
   border-radius: 10px;
   text-decoration: none;
@@ -132,6 +127,7 @@ header {
 nav {
   display: flex;
   gap: 30px;
+  margin-left: 60px;
 }
 
 nav a {
@@ -197,7 +193,9 @@ async function send() {
 
 <header>
   <div class="logo">
-    <img src="logo.png" alt="KYBER IA">
+    <a href="#">
+      <img src="logo.png" alt="KYBER IA">
+    </a>
   </div>
 
   <nav>
@@ -217,7 +215,7 @@ async function send() {
   <span class="badge">🚀 Automação com IA</span>
   <h1>Automatize seus processos com assistentes de IA</h1>
   <p>Agentes inteligentes, automações e IA generativa para escalar seu negócio</p>
-  <a class="btn" href="#contato">Fale com nossos especialista</a>
+  <a class="btn" href="#contato">Fale com nossos especialistas</a>
 </section>
 
 <section class="section" id="solucoes">
@@ -357,16 +355,25 @@ document.getElementById("leadForm").addEventListener("submit", async function(e)
     mensagem: form.mensagem.value
   };
 
-  const res = await fetch("https://script.google.com/macros/s/AKfycbzzVytQlWqLBSYVwWNxu9Ny4exgA9yq6eSrNe-gY1upBYmIZfTtfu36QILNlbiGx1Kt/exec", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(data)
-  });
+  try {
+    const res = await fetch("https://script.google.com/macros/s/AKfycbzzVytQlWqLBSYVwWNxu9Ny4exgA9yq6eSrNe-gY1upBYmIZfTtfu36QILNlbiGx1Kt/exec", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    });
 
-  alert("✅ Mensagem enviada com sucesso!");
-  form.reset();
+    if (res.ok) {
+      document.getElementById("formMsg").innerText = "✅ Mensagem enviada com sucesso!";
+      form.reset();
+    } else {
+      document.getElementById("formMsg").innerText = "❌ Erro ao enviar. Tente novamente.";
+    }
+
+  } catch (error) {
+    alert("❌ Erro de conexão.");
+  }
 });
 </script>
 
