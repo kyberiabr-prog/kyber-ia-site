@@ -209,8 +209,8 @@ async function send() {
   </nav>
 
   <div class="actions">
-    <a class="btn-outline" href="#leadForm">Fale com a gente</a>
-    <a class="btn-primary" href="#leadForm">Ver demonstrações</a>
+    <a class="btn-outline" href="#contato">Fale com a gente</a>
+    <a class="btn-primary" href="#contato">Ver demonstrações</a>
   </div>
 </header>
 
@@ -218,7 +218,7 @@ async function send() {
   <span class="badge">🚀 Automação com IA</span>
   <h1>Automatize seus processos com assistentes de IA</h1>
   <p>Agentes inteligentes, automações e IA generativa para escalar seu negócio</p>
-  <a class="btn" href="#leadForm">Fale com nossos especialistas</a>
+  <a class="btn" href="#contato">Fale com nossos especialistas</a>
 </section>
 
 <section class="section" id="solucoes">
@@ -313,7 +313,7 @@ async function send() {
 <a class="whatsapp" href="https://wa.me/5561996583228" target="_blank">💬</a>
 
   <!-- Formulário -->
-<section style="padding: 60px 20px; background: #FFFFFF; color: #0F172A;">
+<section id="contato" style="padding: 60px 20px; background: #FFFFFF; color: #0F172A;">
   <h2 style="text-align:center; font-size: 32px; margin-bottom: 20px;">
     Fale com a gente
   </h2>
@@ -327,7 +327,7 @@ async function send() {
     <input type="text" name="sobrenome" placeholder="Sobrenome" required 
       style="padding:12px; border-radius:8px; border:1px solid #E2E8F0; background:#F8FAFC;">
     
-    <input type="email" name="empresa" placeholder="Empresa" required 
+    <input type="text" name="empresa" placeholder="Empresa" required 
       style="padding:12px; border-radius:8px; border:1px solid #E2E8F0; background:#F8FAFC;">
     
     <input type="email" name="email" placeholder="E-mail" required 
@@ -339,7 +339,7 @@ async function send() {
     <textarea name="mensagem" placeholder="Como podemos te ajudar?" required
       style="padding:12px; border-radius:8px; border:1px solid #E2E8F0; background:#F8FAFC;"></textarea>
 
-    <button type="submit" style="
+    <button id="submitBtn" type="submit" style="
       padding: 14px;
       background: #7C3AED;
       color: white;
@@ -350,6 +350,9 @@ async function send() {
     ">
       Enviar mensagem
     </button>
+
+    <p id="formMsg" style="text-align:center; margin-top:10px; font-weight:500;"></p>
+    
   </form>
 </section>
 
@@ -359,10 +362,17 @@ document.getElementById("leadForm").addEventListener("submit", async function(e)
 
   const form = e.target;
 
+  // ✅ AQUI (EXATAMENTE AQUI)
+  const btn = document.getElementById("submitBtn");
+  btn.disabled = true;
+  btn.innerText = "Enviando...";
+
   const data = {
     nome: form.nome.value,
+    sobrenome: form.sobrenome.value,
+    empresa: form.empresa.value,
     email: form.email.value,
-    whatsapp: form.whatsapp.value,
+    telefone: form.telefone.value,
     mensagem: form.mensagem.value
   };
 
@@ -377,13 +387,19 @@ document.getElementById("leadForm").addEventListener("submit", async function(e)
 
     if (res.ok) {
       document.getElementById("formMsg").innerText = "✅ Mensagem enviada com sucesso!";
+      btn.disabled = false;
+      btn.innerText = "Enviar mensagem";
       form.reset();
     } else {
       document.getElementById("formMsg").innerText = "❌ Erro ao enviar. Tente novamente.";
+      btn.disabled = false;
+      btn.innerText = "Enviar mensagem";
     }
 
   } catch (error) {
-    alert("❌ Erro de conexão.");
+    document.getElementById("formMsg").innerText = "❌ Erro de conexão.";
+    btn.disabled = false;
+    btn.innerText = "Enviar mensagem";
   }
 });
 </script>
