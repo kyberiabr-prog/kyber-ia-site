@@ -316,13 +316,19 @@ async function send() {
   <form id="leadForm"
         style="max-width: 500px; margin: auto; display: flex; flex-direction: column; gap: 15px;">
 
-    <input type="text" name="nome" placeholder="Seu nome" required 
+    <input type="text" name="nome" placeholder="Nome" required 
+      style="padding:12px; border-radius:8px; border:none;">
+    
+    <input type="text" name="sobrenome" placeholder="Sobrenome" required 
+      style="padding:12px; border-radius:8px; border:none;">
+    
+    <input type="email" name="empresa" placeholder="Empresa" required 
+      style="padding:12px; border-radius:8px; border:none;">
+    
+    <input type="email" name="email" placeholder="E-mail" required 
       style="padding:12px; border-radius:8px; border:none;">
 
-    <input type="email" name="email" placeholder="Seu e-mail" required 
-      style="padding:12px; border-radius:8px; border:none;">
-
-    <input type="text" name="whatsapp" placeholder="Seu WhatsApp" 
+    <input type="text" name="telefone" placeholder="Telefone" 
       style="padding:12px; border-radius:8px; border:none;">
 
     <textarea name="mensagem" placeholder="Como podemos te ajudar?" required
