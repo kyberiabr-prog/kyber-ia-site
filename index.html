@@ -20,8 +20,8 @@ html {
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(180deg, #f7f8fa, #ffffff);
-  color: black;
+  background: #F8FAFC;
+  color: #0F172A;
 }
 
 .hero {
@@ -34,7 +34,7 @@ body {
 }
 
 .hero p {
-  color: #06080f;
+  color: #64748B;
   margin: 20px 0;
 }
 
@@ -55,6 +55,7 @@ body {
 .section {
   padding: 80px 20px;
   text-align: center;
+  background: #F8FAFC;
 }
 
 .cards {
@@ -65,7 +66,8 @@ body {
 }
 
 .card {
-  background: #f0f1f5;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
   padding: 30px;
   border-radius: 16px;
   transition: 0.3s;
@@ -76,7 +78,8 @@ body {
 }
 
 .badge {
-  background: #7C3AED;
+  background: #F1F5F9;
+  color: #7C3AED;
   padding: 6px 12px;
   border-radius: 20px;
   font-size: 12px;
@@ -91,7 +94,7 @@ body {
 footer {
   text-align: center;
   padding: 40px;
-  color: #06080f;
+  color: #64748B;
 }
 
 /* WhatsApp botão */
@@ -114,10 +117,10 @@ header {
   padding: 20px 40px;
   position: sticky;
   top: 0;
-  background: rgba(10,15,28,0.8);
+  background: rgba(255,255,255,0.8);
   backdrop-filter: blur(10px);
   z-index: 1000;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid #E2E8F0;
 }
 
 .logo img {
@@ -131,7 +134,7 @@ nav {
 }
 
 nav a {
-  color: white;
+  color: #0F172A;
   text-decoration: none;
   font-weight: 500;
 }
@@ -308,7 +311,7 @@ async function send() {
 <a class="whatsapp" href="https://wa.me/5561996583228" target="_blank">💬</a>
 
   <!-- Formulário -->
-<section style="padding: 60px 20px; background: #f0f1f5; color: black;">
+<section style="padding: 60px 20px; background: #FFFFFF; color: #0F172A;">
   <h2 style="text-align:center; font-size: 32px; margin-bottom: 20px;">
     Fale com a gente
   </h2>
@@ -317,22 +320,22 @@ async function send() {
         style="max-width: 500px; margin: auto; display: flex; flex-direction: column; gap: 15px;">
 
     <input type="text" name="nome" placeholder="Nome" required 
-      style="padding:12px; border-radius:8px; border:none;">
+      style="padding:12px; border-radius:8px; border:1px solid #E2E8F0; background:#F8FAFC;">
     
     <input type="text" name="sobrenome" placeholder="Sobrenome" required 
-      style="padding:12px; border-radius:8px; border:none;">
+      style="padding:12px; border-radius:8px; border:1px solid #E2E8F0; background:#F8FAFC;">
     
     <input type="email" name="empresa" placeholder="Empresa" required 
-      style="padding:12px; border-radius:8px; border:none;">
+      style="padding:12px; border-radius:8px; border:1px solid #E2E8F0; background:#F8FAFC;">
     
     <input type="email" name="email" placeholder="E-mail" required 
-      style="padding:12px; border-radius:8px; border:none;">
+      style="padding:12px; border-radius:8px; border:1px solid #E2E8F0; background:#F8FAFC;">
 
     <input type="text" name="telefone" placeholder="Telefone" 
-      style="padding:12px; border-radius:8px; border:none;">
+      style="padding:12px; border-radius:8px; border:1px solid #E2E8F0; background:#F8FAFC;">
 
     <textarea name="mensagem" placeholder="Como podemos te ajudar?" required
-      style="padding:12px; border-radius:8px; border:none;"></textarea>
+      style="padding:12px; border-radius:8px; border:1px solid #E2E8F0; background:#F8FAFC;"></textarea>
 
     <button type="submit" style="
       padding: 14px;
