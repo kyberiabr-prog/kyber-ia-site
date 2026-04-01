@@ -342,7 +342,7 @@ async function send() {
     Fale com a gente
   </h2>
 
-  <form action="https://formspree.io/f/xnjgwlgz" method="POST"
+  <form id="leadForm"
         style="max-width: 500px; margin: auto; display: flex; flex-direction: column; gap: 15px;">
     
     <input type="hidden" name="_subject" value="Novo lead - Kyber IA">
@@ -382,6 +382,55 @@ async function send() {
   </form>
 </section>
 
+<script>
+document.getElementById("leadForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const btn = document.getElementById("submitBtn");
+  const msg = document.getElementById("formMsg");
+
+  btn.disabled = true;
+  btn.innerText = "Enviando...";
+  msg.innerText = "";
+
+  const data = {
+    nome: form.nome.value,
+    sobrenome: form.sobrenome.value,
+    empresa: form.empresa.value,
+    email: form.email.value,
+    telefone: form.telefone.value,
+    mensagem: form.mensagem.value
+  };
+
+  try {
+    const res = await fetch("https://formspree.io/f/xnjgwlgz", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(data)
+    });
+
+    if (res.ok) {
+      msg.innerText = "✅ Mensagem enviada com sucesso!</b><br>Entraremos em contato em breve!";
+      msg.style.color = "#FFFFFF";
+      form.reset();
+    } else {
+      msg.innerText = "❌ Erro ao enviar. Tente novamente.";
+      msg.style.color = "#FFD1D1";
+    }
+
+  } catch (error) {
+    msg.innerText = "❌ Erro de conexão.";
+    msg.style.color = "#FFD1D1";
+  }
+
+  btn.disabled = false;
+  btn.innerText = "Enviar mensagem";
+});
+</script>
 
 </body>
 </html>
