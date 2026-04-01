@@ -348,7 +348,8 @@ async function send() {
     <input type="hidden" name="_subject" value="Novo lead - Kyber IA">
     
     <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_next" value="https://kyber.ia.br/obrigado.html">
+
+    <input type="hidden" name="_template" value="table">
     
     <input type="text" name="nome" placeholder="Nome" required 
       style="padding:12px; border-radius:8px; border:1px solid #E2E8F0; background:#F8FAFC;">
@@ -359,7 +360,7 @@ async function send() {
     <input type="text" name="empresa" placeholder="Empresa" required 
       style="padding:12px; border-radius:8px; border:1px solid #E2E8F0; background:#F8FAFC;">
     
-    <input type="email" name="email" placeholder="E-mail" required 
+    <input type="email" name="_replyto" placeholder="E-mail" required> 
       style="padding:12px; border-radius:8px; border:1px solid #E2E8F0; background:#F8FAFC;">
 
     <input type="text" name="telefone" placeholder="Telefone" 
