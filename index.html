@@ -401,29 +401,17 @@ document.getElementById("leadForm").addEventListener("submit", async function(e)
   };
 
   try {
-    const res = await fetch("https://script.google.com/macros/s/AKfycbxxULdXwrWCi7e8waPuySIuz0qaI6f26ZDTqit51-1EKIFZKZD4aJnO_7hkcc9LYZNr/exec", {
+    await fetch("https://script.google.com/macros/s/AKfycbxxULdXwrWCi7e8waPuySIuz0qaI6f26ZDTqit51-1EKIFZKZD4aJnO_7hkcc9LYZNr/exec", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
+      mode: "no-cors",
       body: JSON.stringify(data)
     });
-
-    if (res.ok) {
-      document.getElementById("formMsg").innerText = "✅ Mensagem enviada com sucesso!";
-      btn.disabled = false;
-      btn.innerText = "Enviar mensagem";
-      form.reset();
-    } else {
-      document.getElementById("formMsg").innerText = "❌ Erro ao enviar. Tente novamente.";
-      btn.disabled = false;
-      btn.innerText = "Enviar mensagem";
-    }
-
-  } catch (error) {
-    document.getElementById("formMsg").innerText = "❌ Erro de conexão.";
+    
+    // Sempre assume sucesso
+    document.getElementById("formMsg").innerText = "✅ Mensagem enviada com sucesso!";
     btn.disabled = false;
     btn.innerText = "Enviar mensagem";
+    form.reset();
   }
 });
 </script>
