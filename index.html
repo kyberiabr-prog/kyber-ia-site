@@ -342,9 +342,14 @@ async function send() {
     Fale com a gente
   </h2>
 
-  <form id="leadForm"
+  <form action="https://formspree.io/f/xnjgwlgz" method="POST"
         style="max-width: 500px; margin: auto; display: flex; flex-direction: column; gap: 15px;">
-
+    
+    <input type="hidden" name="_subject" value="Novo lead - Kyber IA">
+    
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="https://kyber.ia.br/obrigado.html">
+    
     <input type="text" name="nome" placeholder="Nome" required 
       style="padding:12px; border-radius:8px; border:1px solid #E2E8F0; background:#F8FAFC;">
     
@@ -380,50 +385,6 @@ async function send() {
   </form>
 </section>
 
-<script>
-document.getElementById("leadForm").addEventListener("submit", async function(e) {
-  e.preventDefault();
-
-  const form = e.target;
-  const btn = document.getElementById("submitBtn");
-
-  btn.disabled = true;
-  btn.innerText = "Enviando...";
-
-  const data = {
-    nome: form.nome.value,
-    sobrenome: form.sobrenome.value,
-    empresa: form.empresa.value,
-    email: form.email.value,
-    telefone: form.telefone.value,
-    mensagem: form.mensagem.value
-  };
-
-  try {
-    const res = await fetch("https://script.google.com/macros/s/AKfycbxDwNQ8h4K5-LoJNzyBSP1vCUuWI-XgxvGlQxbtYGQrT1TYd49KSCFV4FGX7Jc3k8XV/exec", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(data)
-    });
-
-    if (res.ok) {
-      document.getElementById("formMsg").innerText = "✅ Mensagem enviada com sucesso!";
-      form.reset();
-    } else {
-      document.getElementById("formMsg").innerText = "❌ Erro ao enviar.";
-    }
-
-  } catch (error) {
-    document.getElementById("formMsg").innerText = "❌ Erro de conexão.";
-    console.error(error);
-  }
-
-  btn.disabled = false;
-  btn.innerText = "Enviar mensagem";
-});
-</script>
 
 </body>
 </html>
