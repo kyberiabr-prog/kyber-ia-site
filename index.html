@@ -385,9 +385,8 @@ document.getElementById("leadForm").addEventListener("submit", async function(e)
   e.preventDefault();
 
   const form = e.target;
-
-  // ✅ AQUI (EXATAMENTE AQUI)
   const btn = document.getElementById("submitBtn");
+
   btn.disabled = true;
   btn.innerText = "Enviando...";
 
@@ -401,18 +400,28 @@ document.getElementById("leadForm").addEventListener("submit", async function(e)
   };
 
   try {
-    await fetch("https://script.google.com/macros/s/AKfycbxxULdXwrWCi7e8waPuySIuz0qaI6f26ZDTqit51-1EKIFZKZD4aJnO_7hkcc9LYZNr/exec", {
+    const res = await fetch("https://script.google.com/macros/s/AKfycbxxULdXwrWCi7e8waPuySIuz0qaI6f26ZDTqit51-1EKIFZKZD4aJnO_7hkcc9LYZNr/exec", {
       method: "POST",
-      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify(data)
     });
-    
-    // Sempre assume sucesso
-    document.getElementById("formMsg").innerText = "✅ Mensagem enviada com sucesso!";
-    btn.disabled = false;
-    btn.innerText = "Enviar mensagem";
-    form.reset();
+
+    if (res.ok) {
+      document.getElementById("formMsg").innerText = "✅ Mensagem enviada com sucesso!";
+      form.reset();
+    } else {
+      document.getElementById("formMsg").innerText = "❌ Erro ao enviar.";
+    }
+
+  } catch (error) {
+    document.getElementById("formMsg").innerText = "❌ Erro de conexão.";
+    console.error(error);
   }
+
+  btn.disabled = false;
+  btn.innerText = "Enviar mensagem";
 });
 </script>
 
