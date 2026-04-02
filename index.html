@@ -356,7 +356,7 @@ async function send() {
     <input type="text" name="empresa" placeholder="Empresa" required 
       style="padding:12px; border-radius:8px; border:1px solid #E2E8F0; background:#F8FAFC;">
     
-    <input type="email" name="_replyto" placeholder="E-mail" required
+    <input type="email" name="_email" placeholder="E-mail" required
       style="padding:12px; border-radius:8px; border:1px solid #E2E8F0; background:#F8FAFC;">
 
     <input type="text" name="telefone" placeholder="Telefone" 
@@ -392,7 +392,7 @@ document.getElementById("leadForm").addEventListener("submit", async function(e)
 
   btn.disabled = true;
   btn.innerText = "Enviando...";
-  msg.innerText = "";
+  msg.innerHTML = "";
 
   const data = {
     nome: form.nome.value,
@@ -414,16 +414,16 @@ document.getElementById("leadForm").addEventListener("submit", async function(e)
     });
 
     if (res.ok) {
-      msg.innerText = "✅ Mensagem enviada com sucesso!</b><br>Entraremos em contato em breve!";
+      msg.innerHTML = "✅ Mensagem enviada com sucesso!";
       msg.style.color = "#FFFFFF";
       form.reset();
     } else {
-      msg.innerText = "❌ Erro ao enviar. Tente novamente.";
+      msg.innerHTML = "❌ Erro ao enviar. Tente novamente.";
       msg.style.color = "#FFD1D1";
     }
 
   } catch (error) {
-    msg.innerText = "❌ Erro de conexão.";
+    msg.innerHTML = "❌ Erro de conexão.";
     msg.style.color = "#FFD1D1";
   }
 
