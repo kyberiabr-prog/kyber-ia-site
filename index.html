@@ -277,16 +277,23 @@ async function send() {
   </p>
 
   <!-- 🎥 VÍDEO -->
-  <div style="margin-top:40px; display:flex; justify-content:center;">
-       
-        <video controls preload="metadata" poster="capa_video.png"
-          style="width:100%; max-width:800px; border-radius:12px;">
-        
-        <source src="video.mp4" type="video/mp4">
+  <div style="
+    width:100%;
+    max-width:800px;
+    aspect-ratio:16/9;
+    margin:auto;
+  ">
+    <video controls poster="thumb.jpg"
+      style="
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        border-radius:12px;
+      ">
       
-        Seu navegador não suporta vídeo.
-      </video>
-    </div>
+      <source src="video.mp4" type="video/mp4">
+    
+    </video>
   </div>
   
 </section>
