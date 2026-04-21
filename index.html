@@ -35,6 +35,20 @@ body {
   margin-bottom: -2px; /* puxa levemente pra cobrir a linha */
 }
 
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(112, 20, 116, 0.45) 0%,
+    rgba(112, 20, 116, 0.35) 60%,
+    rgba(248, 250, 252, 0.9) 85%,
+    #F8FAFC 100%
+  );
+  z-index: 1;
+}
+
 .hero::after {
   content: "";
   position: absolute;
@@ -50,14 +64,6 @@ body {
     #F8FAFC 100%
   );
   z-index: 2;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(112, 20, 116, 0.35);
-  z-index: 1;
 }
 
 .hero * {
