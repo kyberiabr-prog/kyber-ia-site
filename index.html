@@ -179,6 +179,13 @@ nav a:hover {
   gap: 15px;
 }
 
+.menu-mobile {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  transition: all 0.3s ease;
+}
+  
 .menu-toggle span {
   display: block;
   width: 25px;
@@ -266,8 +273,61 @@ nav a:hover {
     font-size: 16px;
   }
 }
+@media (max-width: 768px) {
 
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+  }
 
+  .menu-toggle {
+    display: block;
+  }
+
+  .menu-mobile {
+    display: none; /* 🔥 escondido */
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: white;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+
+  .menu-mobile nav {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .menu-mobile .actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    align-items: center;
+  }
+
+  .menu-mobile .actions a {
+    width: 80%;
+    text-align: center;
+  }
+
+  .menu-mobile.active {
+    display: flex; /* 🔥 abre tudo junto */
+  }
+
+  /* 🔥 evita bagunça no desktop */
+  nav, .actions {
+    position: static;
+  }
+}
   
 </style>
 </head>
@@ -311,17 +371,20 @@ async function send() {
     <span></span>
     <span></span>
   </div>
-  
-  <nav>
-    <a href="#solucoes">Soluções</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#como-funciona">Como Funciona</a>
-    <a href="#faq">Perguntas Frequentes</a>
-  </nav>
 
-  <div class="actions">
-    <a class="btn-outline" href="#contato">Fale com a gente</a>
-    <a class="btn-primary" href="#sobre">Conheça a solução</a>
+  <div class="menu-mobile">
+  
+    <nav>
+      <a href="#solucoes">Soluções</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#como-funciona">Como Funciona</a>
+      <a href="#faq">Perguntas Frequentes</a>
+    </nav>
+  
+    <div class="actions">
+      <a class="btn-outline" href="#contato">Fale com a gente</a>
+      <a class="btn-primary" href="#sobre">Conheça a solução</a>
+    </div>
   </div>
 </header>
 
@@ -619,8 +682,7 @@ function fecharImagem() {
 
 <script>
 function toggleMenu() {
-  document.querySelector("nav").classList.toggle("active");
-  document.querySelector(".actions").classList.toggle("active");
+  document.querySelector(".menu-mobile").classList.toggle("active");
 }
 </script>
   
