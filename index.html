@@ -179,10 +179,13 @@ nav a:hover {
   gap: 15px;
 }
 
-.menu-toggle {
-  display: none;
-  font-size: 28px;
-  cursor: pointer;
+.menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: #0F172A;
+  margin: 5px 0;
+  border-radius: 2px;
 }
  
 .btn-primary {
@@ -304,7 +307,9 @@ async function send() {
   </div>
 
   <div class="menu-toggle" onclick="toggleMenu()">
-    ☰
+    <span></span>
+    <span></span>
+    <span></span>
   </div>
   
   <nav>
