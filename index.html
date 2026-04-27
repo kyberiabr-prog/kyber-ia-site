@@ -232,40 +232,6 @@ nav a:hover {
     display: block; /* 🔥 aparece o hambúrguer */
   }
 
-  nav,
-  .actions {
-    display: none; /* 🔥 ESCONDE tudo */
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    background: white;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px 0;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  }
-
-  nav a {
-    padding: 10px 0;
-    font-size: 18px;
-  }
-
-  .actions {
-    gap: 10px;
-  }
-
-  .actions a {
-    width: 80%;
-    text-align: center;
-  }
-
-  /* 🔥 estado ativo (menu aberto) */
-  nav.active,
-  .actions.active {
-    display: flex;
-  }
-
   .hero {
     padding: 40px 15px;
   }
@@ -279,6 +245,7 @@ nav a:hover {
     font-size: 16px;
   }
 }
+  
 @media (max-width: 768px) {
 
   header {
@@ -292,8 +259,15 @@ nav a:hover {
     display: block;
   }
 
+  /* 🔥 ESCONDE menu desktop */
+  nav,
+  .actions {
+    display: none;
+  }
+
+  /* 🔥 MENU MOBILE UNIFICADO */
   .menu-mobile {
-    display: none; /* 🔥 escondido */
+    display: none;
     position: absolute;
     top: 70px;
     left: 0;
@@ -304,19 +278,30 @@ nav a:hover {
     padding: 20px;
     gap: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+    border-radius: 0 0 16px 16px;
   }
 
+  /* 🔥 LINKS */
   .menu-mobile nav {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    width: 100%;
     gap: 15px;
   }
 
+  .menu-mobile nav a {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* 🔥 BOTÕES */
   .menu-mobile .actions {
     display: flex;
     flex-direction: column;
-    gap: 10px;
     width: 100%;
+    gap: 10px;
     align-items: center;
   }
 
@@ -325,13 +310,25 @@ nav a:hover {
     text-align: center;
   }
 
+  /* 🔥 MENU ABERTO */
   .menu-mobile.active {
-    display: flex; /* 🔥 abre tudo junto */
+    display: flex;
   }
 
-  /* 🔥 evita bagunça no desktop */
-  nav, .actions {
-    position: static;
+  /* 🔥 HERO */
+  .hero {
+    padding: 40px 15px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+    line-height: 1.2;
+  }
+
+  .hero p {
+    font-size: 16px;
   }
 }
   
