@@ -288,6 +288,8 @@ nav a:hover {
     flex-direction: column;
     width: 100%;
     gap: 15px;
+    margin-left: 0; /* 🔥 ESSENCIAL */
+    align-items: center; /* 🔥 centraliza os links */
   }
 
   .menu-mobile nav a {
@@ -295,7 +297,7 @@ nav a:hover {
     width: 100%;
     text-align: center;
     padding: 10px 0;
-    box-sizing: border-box;
+    margin: 0 auto;
   }
 
   /* 🔥 BOTÕES */
@@ -320,8 +322,8 @@ nav a:hover {
   /* 🔥 HERO */
   .hero {
     padding: 40px 15px;
-    background-size: cover;
-    background-position: center;
+    background-size: 140%;
+    background-position: center top;
   }
 
   .hero h1 {
