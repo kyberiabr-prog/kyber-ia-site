@@ -7,6 +7,9 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
 <style>
 
 * {
@@ -343,6 +346,78 @@ nav a:hover {
     font-size: 16px;
   }
 }
+
+/* FOOTER NOVO */
+.footer-kyber {
+  background: #050505;
+  border-top: 1px solid rgba(255,255,255,0.35);
+  padding: 28px 40px;
+}
+
+.footer-content {
+  max-width: 1400px;
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.footer-logo img {
+  height: 55px;
+  object-fit: contain;
+}
+
+.footer-center {
+  text-align: center;
+  color: #FFFFFF;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.footer-social a {
+  color: white;
+  font-size: 42px;
+  transition: 0.3s;
+}
+
+.footer-social a:hover {
+  transform: scale(1.12);
+  opacity: 0.8;
+}
+
+/* 📱 MOBILE */
+@media (max-width: 768px) {
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-logo img {
+    height: 48px;
+  }
+
+  .footer-center {
+    font-size: 15px;
+  }
+
+  .footer-social {
+    gap: 20px;
+  }
+
+  .footer-social a {
+    font-size: 38px;
+  }
+}
   
 </style>
 </head>
@@ -599,9 +674,43 @@ async function send() {
   </form>
 </section>
 
-<footer>
-  © 2026 KYBER IA. Todos os direitos reservados.
-  Brasília - DF
+<footer class="footer-kyber">
+
+  <div class="footer-content">
+
+    <!-- LOGO -->
+    <div class="footer-logo">
+      <img src="logo_branca.png" alt="KYBER IA">
+    </div>
+
+    <!-- TEXTO -->
+    <div class="footer-center">
+      © 2026 KYBER IA. Todos os direitos reservados.<br>
+      Brasília - DF
+    </div>
+
+    <!-- REDES -->
+    <div class="footer-social">
+
+      <a href="https://instagram.com/"
+         target="_blank">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+
+      <a href="https://linkedin.com/"
+         target="_blank">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+
+      <a href="https://youtube.com/"
+         target="_blank">
+        <i class="fa-brands fa-youtube"></i>
+      </a>
+
+    </div>
+
+  </div>
+
 </footer>
   
 <script>
