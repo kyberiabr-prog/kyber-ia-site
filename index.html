@@ -9,21 +9,21 @@
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
+
 <style>
+
+/* =========================
+   BASE GERAL
+========================= */
 
 * {
   box-sizing: border-box;
-}
-  
-section {
-  scroll-margin-top: 100px;
 }
 
 html {
   scroll-behavior: smooth;
 }
- 
+
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
@@ -31,154 +31,14 @@ body {
   color: #0F172A;
 }
 
-.hero {
-  position: relative;
-  text-align: center;
-  padding: 180px 20px 50px; /* mais espaço embaixo */;
-  min-height: 80vh;
-  color: white;
-  background: 
-    linear-gradient(
-      to bottom,
-      rgba(0,0,0,0.08) 75%,
-      rgba(248,250,252,0.15) 90%,
-      #F8FAFC 100%
-    ),
-    linear-gradient(
-      to bottom,
-      rgba(112,20,116,0.08),
-      rgba(112,20,116,0.08)
-    ),
-    url('hero-bg2.jpg') center bottom / cover no-repeat;
-  overflow: hidden; /* 🔥 evita qualquer vazamento visual */
-  box-shadow: inset 0 -80px 80px -40px #F8FAFC;
-  filter: brightness(1.08) contrast(1.08) saturate(1.15);
-  background-blend-mode: normal, soft-light, normal;
+section {
+  scroll-margin-top: 100px;
 }
 
-/* MONITORES GRANDES */
-@media (min-width: 1400px) {
 
-  .hero {
-    min-height: 90vh;
-    padding-top: 220px;
-    background-position: center 15%;
-  }
-}  
-
-.hero * {
-  position: relative;
-  z-index: 2;
-}  
-  
-.hero h1 {
-  font-size: 40px;
-  text-shadow:
-    0 2px 4px rgba(0,0,0,0.5),
-    0 8px 30px rgba(0,0,0,0.4);
-}
-
-.hero p {
-  color: #F8FAFC;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-  margin-top: 20px; /* ajuste fino aqui */
-}
-
-.btn {
-  background: white;
-  color: #701474;
-  padding: 14px 30px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-}
-
-.btn:hover {
-  transform: scale(1.05);
-}
-
-.section {
-  padding: 80px 20px;
-  text-align: center;
-  background: #F8FAFC;
-  margin-top: 0; /* 🔥 evita micro espaçamento */
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 30px;
-  margin-top: 40px;
-}
-
-.card {
-  background: #70147430;
-  border: 1px solid #E2E8F0;
-  padding: 30px;
-  border-radius: 16px;
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-10px);
-}
-
-/*
-.badge {
-  background: #70147430;
-  color: #0F172A;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 12px;
-}
-*/
-  
-.cta {
-  background: #701474;
-  color: white;
-  padding: 60px 20px;
-}
-
-footer {
-  text-align: center;
-  padding: 40px;
-  color: #64748B;
-}
-
-/* WhatsApp botão */
-.whatsapp {
-  position: fixed;
-  bottom: 80px;
-  right: 25px;
-
-  width: 64px;
-  height: 64px;
-
-  background: #25D366;
-  color: white;
-
-  border-radius: 50%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  text-decoration: none;
-
-  font-size: 38px;
-
-  z-index: 9999;
-
-  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-
-  transition: 0.3s ease;
-}
-
-.whatsapp:hover {
-  transform: scale(1.08);
-}
+/* =========================
+   HEADER / MENU
+========================= */
 
 header {
   display: flex;
@@ -195,6 +55,15 @@ header {
 
 .logo img {
   height: 58px;
+}
+
+.menu-mobile {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  transition: all 0.3s ease;
+  border-radius: 0 0 16px 16px;
+  overflow: hidden;
 }
 
 nav {
@@ -218,15 +87,11 @@ nav a:hover {
   gap: 15px;
 }
 
-.menu-mobile {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-  transition: all 0.3s ease;
-  border-radius: 0 0 16px 16px;
-  overflow: hidden;
+.menu-toggle {
+  display: none;
+  cursor: pointer;
 }
-  
+
 .menu-toggle span {
   display: block;
   width: 25px;
@@ -235,7 +100,27 @@ nav a:hover {
   margin: 5px 0;
   border-radius: 2px;
 }
- 
+
+
+/* =========================
+   BOTÕES
+========================= */
+
+.btn {
+  background: white;
+  color: #701474;
+  padding: 14px 30px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
 .btn-primary {
   background: #701474;
   color: white;
@@ -253,42 +138,222 @@ nav a:hover {
   text-decoration: none;
 }
 
-.menu-toggle {
-  display: none;
-  cursor: pointer;
+
+/* =========================
+   HERO - PADRÃO NOTEBOOK
+========================= */
+
+.hero {
+  position: relative;
+  text-align: center;
+  padding: 180px 20px 50px;
+  min-height: 80vh;
+  color: white;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.08) 75%,
+      rgba(248,250,252,0.15) 90%,
+      #F8FAFC 100%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(112,20,116,0.08),
+      rgba(112,20,116,0.08)
+    ),
+    url('hero-bg2.jpg') center bottom / cover no-repeat;
+
+  overflow: hidden;
+  box-shadow: inset 0 -80px 80px -40px #F8FAFC;
+  filter: brightness(1.08) contrast(1.08) saturate(1.15);
+  background-blend-mode: normal, soft-light, normal;
 }
 
-/* 📱 MOBILE */
-@media (max-width: 768px) {
+.hero * {
+  position: relative;
+  z-index: 2;
+}
 
-  header {
-    flex-direction: row; /* 🔥 volta pra linha */
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-  }
+.hero h1 {
+  font-size: 40px;
+  line-height: 1.15;
+  text-shadow:
+    0 2px 4px rgba(0,0,0,0.5),
+    0 8px 30px rgba(0,0,0,0.4);
+}
 
-  .menu-toggle {
-    display: block; /* 🔥 aparece o hambúrguer */
-  }
+.hero p {
+  color: #F8FAFC;
+  font-size: 16px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  margin-top: 20px;
+}
+
+
+/* =========================
+   SEÇÕES / CARDS
+========================= */
+
+.section {
+  padding: 80px 20px;
+  text-align: center;
+  background: #F8FAFC;
+  margin-top: 0;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.card {
+  background: #70147430;
+  border: 1px solid #E2E8F0;
+  padding: 30px;
+  border-radius: 16px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+
+/* =========================
+   WHATSAPP
+========================= */
+
+.whatsapp {
+  position: fixed;
+  bottom: 80px;
+  right: 25px;
+
+  width: 64px;
+  height: 64px;
+
+  background: #25D366;
+  color: white;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+  font-size: 38px;
+
+  z-index: 9999;
+
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  transition: 0.3s ease;
+}
+
+.whatsapp:hover {
+  transform: scale(1.08);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  text-align: center;
+  padding: 40px;
+  color: #64748B;
+}
+
+.footer-kyber {
+  background: #F8FAFC;
+  border-top: 1px solid #E2E8F0;
+  padding: 28px 40px;
+}
+
+.footer-content {
+  max-width: 1400px;
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.footer-logo img {
+  height: 55px;
+  object-fit: contain;
+}
+
+.footer-center {
+  text-align: center;
+  color: #0F172A;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.footer-social a {
+  color: #0F172A;
+  font-size: 42px;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.footer-social a:hover {
+  transform: scale(1.12);
+  opacity: 0.75;
+}
+
+
+/* =========================
+   MONITORES GRANDES
+   acima de 1400px
+========================= */
+
+@media (min-width: 1400px) {
 
   .hero {
-    padding: 120px 15px 40px;
+    min-height: 90vh;
+    padding-top: 220px;
+    background-position: center 15%;
   }
 
   .hero h1 {
-    font-size: 20px;
-    line-height: 1.2;
+    font-size: 40px;
   }
 
   .hero p {
     font-size: 16px;
   }
-  
-  .whatsapp {
-    bottom: 20px;
-    right: 20px;
+
+  nav a {
+    font-size: 16px;
   }
+
+  .btn,
+  .btn-primary,
+  .btn-outline {
+    font-size: 16px;
+  }
+}
+
+
+/* =========================
+   MOBILE
+   até 768px
+========================= */
+
+@media (max-width: 768px) {
 
   header {
     flex-direction: row;
@@ -297,41 +362,48 @@ nav a:hover {
     padding: 15px 20px;
   }
 
+  .logo img {
+    height: 48px;
+  }
+
   .menu-toggle {
     display: block;
   }
 
-  /* 🔥 ESCONDE menu desktop */
   nav,
   .actions {
     display: none;
   }
 
-  /* 🔥 MENU MOBILE UNIFICADO */
   .menu-mobile {
     display: none;
     position: absolute;
     top: 70px;
     left: 0;
     width: 100%;
+
     background: white;
     flex-direction: column;
     align-items: center;
+
     padding: 20px;
     gap: 20px;
+
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    box-sizing: border-box;
     border-radius: 0 0 16px 16px;
   }
 
-  /* 🔥 LINKS */
+  .menu-mobile.active {
+    display: flex;
+  }
+
   .menu-mobile nav {
     display: flex;
     flex-direction: column;
     width: 100%;
     gap: 15px;
-    margin-left: 0; /* 🔥 ESSENCIAL */
-    align-items: center; /* 🔥 centraliza os links */
+    margin-left: 0;
+    align-items: center;
   }
 
   .menu-mobile nav a {
@@ -340,9 +412,9 @@ nav a:hover {
     text-align: center;
     padding: 10px 0;
     margin: 0 auto;
+    font-size: 16px;
   }
 
-  /* 🔥 BOTÕES */
   .menu-mobile .actions {
     display: flex;
     flex-direction: column;
@@ -354,16 +426,12 @@ nav a:hover {
   .menu-mobile .actions a {
     width: 80%;
     text-align: center;
+    font-size: 14px;
   }
 
-  /* 🔥 MENU ABERTO */
-  .menu-mobile.active {
-    display: flex;
-  }
-
-  /* 🔥 HERO */
   .hero {
-    padding: 40px 15px;
+    padding: 120px 15px 40px;
+    min-height: 75vh;
     background-size: cover;
     background-position: center center;
   }
@@ -375,6 +443,31 @@ nav a:hover {
 
   .hero p {
     font-size: 16px;
+  }
+
+  .btn {
+    padding: 12px 22px;
+    font-size: 14px;
+  }
+
+  .section {
+    padding: 60px 20px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .whatsapp {
+    width: 58px;
+    height: 58px;
+    bottom: 20px;
+    right: 20px;
+    font-size: 34px;
   }
 
   .footer-content {
@@ -399,49 +492,8 @@ nav a:hover {
   }
 }
 
-/* FOOTER NOVO */
-.footer-kyber {
-  background: #F8FAFC; /* fundo branco */
-  border-top: 1px solid #E2E8F0; /* linha cinza clara */
-  padding: 28px 40px;
-}
-
-.footer-content {
-  max-width: 1400px;
-  margin: auto;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 30px;
-}
-
-.footer-logo img {
-  height: 55px;
-  object-fit: contain;
-}
-
-.footer-center {
-  text-align: center;
-  color: #0F172A; /* texto preto */
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
-}
-
-.footer-social a {
-  color: #0F172A; /* ícones pretos */
-  font-size: 42px;
-  transition: 0.3s;
-  text-decoration: none; /* remove underline */
-}
-
-.footer-social a:hover {
-  transform: scale(1.12);
-  opacity: 0.75;
-}
-  
 </style>
+
 </head>
 
 <!-- CHAT SIMPLES (TESTE) -->
