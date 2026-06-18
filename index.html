@@ -210,7 +210,7 @@ nav a:hover {
 
 
 /* =========================
-   SEÇÕES / CARDS
+   SEÇÕES
 ========================= */
 
 .section {
@@ -219,6 +219,68 @@ nav a:hover {
   background: #F8FAFC;
   margin-top: 0;
 }
+
+
+/* =========================
+   CARDS DE SOLUÇÕES
+========================= */
+
+.cards-solucoes {
+  display: grid;
+  grid-template-columns: repeat(4, 200px);
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.card-flip {
+  height: 220px;
+  perspective: 1000px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s ease;
+  transform-style: preserve-3d;
+}
+
+.card-flip:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  padding: 16px;
+
+  background: #701474;
+  color: white;
+
+  border-radius: 16px;
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+
+/* =========================
+   CARDS COMUNS
+   Resultados e FAQ
+========================= */
 
 .cards {
   display: grid;
@@ -238,7 +300,6 @@ nav a:hover {
 .card:hover {
   transform: translateY(-10px);
 }
-
 
 /* =========================
    WHATSAPP
@@ -367,6 +428,38 @@ footer {
   }
 }
 
+/* =========================
+   CARDS MONITORES PEQUENOS
+   769px a 1399px
+========================= */
+
+@media (min-width: 769px) and (max-width: 1399px) {
+
+  .cards-solucoes {
+    grid-template-columns: repeat(4, minmax(0, 190px));
+    justify-content: center;
+    gap: 40px;
+  }
+
+  .card-flip,
+  .card-inner {
+    min-height: 200px;
+  }
+
+  .card-front,
+  .card-back {
+    padding: 14px;
+  }
+
+  .card-front h3 {
+    font-size: 14px;
+  }
+
+  .card-back p {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+}
 
 /* =========================
    MOBILE
@@ -478,6 +571,15 @@ footer {
     grid-template-columns: 1fr;
   }
 
+  .cards-solucoes {
+    grid-template-columns: 1fr;
+  }
+
+  .card-flip,
+  .card-inner {
+    min-height: 170px;
+  }
+
   .card {
     padding: 20px;
   }
@@ -587,23 +689,100 @@ async function send() {
 <section class="section" id="solucoes">
   <h2>Muito além de automação. Isso é engenharia de IA.</h2>
 
-  <div class="cards">
-    <div class="card">
-      <h3>🤖 Atendimento inteligente, preciso e humanizado 24/7</h3>
-      <p>Com acesso ao histórico e regras do seu negócio, o Kyber resolve demandas com contexto real — sem respostas genéricas ou erros.</p>
+  <div class="cards-solucoes">
+
+    <div class="card-flip">
+      <div class="card-inner">
+
+        <div class="card-front">
+          <h3>🤖 Atendimento inteligente 24/7</h3>
+        </div>
+
+        <div class="card-back">
+          <p>Respostas rápidas, contextualizadas e humanizadas para clientes e equipes, sem depender de disponibilidade manual.</p>
+        </div>
+
+      </div>
     </div>
 
-    <div class="card">
-      <h3>⚡ Gestão de Equipe</h3>
-      <p>Distribuição automática de tarefas e ordens de serviço.
-      O Kyber atua como um gerente digital incansável, organizando demandas em tempo real e garantindo execução sem falhas.</p>
+
+    <div class="card-flip">
+      <div class="card-inner">
+        <div class="card-front">
+          <h3>⚡ Gestão de demandas</h3>
+        </div>
+        <div class="card-back">
+          <p>Organização automática de tarefas, solicitações e ordens de serviço para garantir fluxo, prioridade e execução.</p>
+        </div>
+      </div>
     </div>
 
-    <div class="card">
-      <h3>🧠 Regras Corporativas</h3>
-      <p>Execução rigorosa das regras do seu negócio.
-      Nada é feito sem validação. Cada ação passa por um sistema determinístico que garante precisão e segurança absoluta.</p>
+    <div class="card-flip">
+      <div class="card-inner">
+        <div class="card-front">
+          <h3>🧠 Base de conhecimento</h3>
+        </div>
+        <div class="card-back">
+          <p>Centralização das informações da empresa para consultas rápidas, confiáveis e acessíveis por todos os times.</p>
+        </div>
+      </div>
     </div>
+
+    <div class="card-flip">
+      <div class="card-inner">
+        <div class="card-front">
+          <h3>🔐 Regras corporativas</h3>
+        </div>
+        <div class="card-back">
+          <p>Aplicação rigorosa de políticas internas, critérios de aprovação e procedimentos operacionais com segurança.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-flip">
+      <div class="card-inner">
+        <div class="card-front">
+          <h3>📊 Apoio à decisão</h3>
+        </div>
+        <div class="card-back">
+          <p>Transformação de dados e documentos em respostas claras para decisões mais rápidas, consistentes e bem informadas.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-flip">
+      <div class="card-inner">
+        <div class="card-front">
+          <h3>🔄 Automação de processos</h3>
+        </div>
+        <div class="card-back">
+          <p>Redução de tarefas repetitivas, retrabalho e etapas manuais por meio de fluxos inteligentes e integrados.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-flip">
+      <div class="card-inner">
+        <div class="card-front">
+          <h3>📁 Consulta documental</h3>
+        </div>
+        <div class="card-back">
+          <p>Busca inteligente em manuais, normas, contratos, políticas e documentos internos com respostas objetivas.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-flip">
+      <div class="card-inner">
+        <div class="card-front">
+          <h3>🚀 Produtividade operacional</h3>
+        </div>
+        <div class="card-back">
+          <p>Mais velocidade, padronização e controle para que sua equipe foque no que realmente gera resultado.</p>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
