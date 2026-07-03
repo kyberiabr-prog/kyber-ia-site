@@ -233,6 +233,1296 @@ nav a:hover {
   margin-top: 40px;
 }
 
+.slide-solucoes {
+  display: contents;
+}
+
+.card-flip {
+  height: 220px;
+  perspective: 1000px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s ease;
+  transform-style: preserve-3d;
+}
+
+.card-flip:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 16px;
+  background: #701474;
+  color: white;
+  border-radius: 16px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.carousel-dots {
+  display: none;
+}
+
+
+/* =========================
+   CARDS COMUNS
+   Resultados e FAQ
+========================= */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.card {
+  background: #70147430;
+  border: 1px solid #E2E8F0;
+  padding: 30px;
+  border-radius: 16px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+/* =========================
+   FAQ NOVO
+========================= */
+
+.faq-container {
+  max-width: 1100px;
+  margin: 50px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq-item {
+  border: 1px solid rgba(112, 20, 116, 0.35);
+  overflow: hidden;
+}
+
+.faq-question {
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    #54005f,
+    #701474,
+    #8a1d91
+  );
+  color: #FFFFFF;
+  border: none;
+  padding: 24px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.faq-question:hover {
+  background: linear-gradient(
+    90deg,
+    #6c1477,
+    #7b1881,
+    #9a22a3
+  );
+}
+
+.faq-icon {
+  font-size: 26px;
+  transition: 0.3s;
+}
+
+.faq-answer {
+  display: none;
+  background: #FFFFFF;
+  color: #334155;
+  padding: 24px 28px;
+  font-size: 17px;
+  line-height: 1.7;
+  text-align: left;
+}
+
+.faq-item.active .faq-answer {
+  display: block;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(45deg);
+}
+
+/* =========================
+   WHATSAPP
+========================= */
+
+.whatsapp {
+  position: fixed;
+  bottom: 80px;
+  right: 25px;
+
+  width: 64px;
+  height: 64px;
+
+  background: #25D366;
+  color: white;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+  font-size: 38px;
+
+  z-index: 9999;
+
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  transition: 0.3s ease;
+}
+
+.whatsapp:hover {
+  transform: scale(1.08);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  text-align: center;
+  padding: 40px;
+  color: #64748B;
+}
+
+.footer-kyber {
+  background: #F8FAFC;
+  border-top: 1px solid #E2E8F0;
+  padding: 28px 40px;
+}
+
+.footer-content {
+  max-width: 1400px;
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.footer-logo img {
+  height: 55px;
+  object-fit: contain;
+}
+
+.footer-center {
+  text-align: center;
+  color: #0F172A;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.footer-social a {
+  color: #0F172A;
+  font-size: 42px;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.footer-social a:hover {
+  transform: scale(1.12);
+  opacity: 0.75;
+}
+
+
+/* =========================
+   MONITORES GRANDES
+   acima de 1400px
+========================= */
+
+@media (min-width: 1400px) {
+
+  .hero {
+    min-height: 93vh;
+    padding-top: 260px;
+    background-position: center 1%;
+    box-shadow: inset 0 -15px 15px -8px #F8FAFC;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+    margin-top: 80px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  nav a {
+    font-size: 16px;
+  }
+
+  .btn,
+  .btn-primary,
+  .btn-outline {
+    font-size: 16px;
+  }
+}
+
+/* =========================
+   CARDS MONITORES PEQUENOS
+   769px a 1399px
+========================= */
+
+@media (min-width: 769px) and (max-width: 1399px) {
+
+  .cards-solucoes {
+    grid-template-columns: repeat(4, minmax(0, 190px));
+    justify-content: center;
+    gap: 40px;
+  }
+
+  .card-flip,
+  .card-inner {
+    min-height: 200px;
+  }
+
+  .card-front,
+  .card-back {
+    padding: 14px;
+  }
+
+  .card-front h3 {
+    font-size: 14px;
+  }
+
+  .card-back p {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+}
+
+/* =========================
+   MOBILE
+   até 768px
+========================= */
+
+@media (max-width: 768px) {
+
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+  }
+
+  .logo img {
+    height: 48px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  nav,
+  .actions {
+    display: none;
+  }
+
+  .menu-mobile {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+
+    background: white;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 20px;
+    gap: 20px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-radius: 0 0 16px 16px;
+  }
+
+  .menu-mobile.active {
+    display: flex;
+  }
+
+  .menu-mobile nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+    margin-left: 0;
+    align-items: center;
+  }
+
+  .menu-mobile nav a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    margin: 0 auto;
+    font-size: 16px;
+  }
+
+  .menu-mobile .actions {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .menu-mobile .actions a {
+    width: 80%;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .hero {
+    padding: 240px 15px 40px;
+    min-height: 90vh;
+    background-size: cover;
+    background-position: center center;
+  }
+
+  .hero h1 {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .btn {
+    padding: 12px 22px;
+    font-size: 14px;
+  }
+
+  .section {
+    padding: 60px 20px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .cards-solucoes {
+    display: block;
+    margin-top: 30px;
+  }
+
+  .slide-solucoes {
+    display: none;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .slide-solucoes.active {
+    display: grid;
+  }
+
+  .card-flip {
+    width: 100%;
+    height: 260px;
+    min-height: 260px;
+  }
+
+  .card-inner {
+    height: 260px;
+    min-height: 260px;
+  }
+
+  .card-front,
+  .card-back {
+    padding: 14px 10px;
+    border-radius: 18px;
+  }
+
+  .card-front h3 {
+    font-size: 14px;
+    line-height: 1.25;
+  }
+
+  .card-back p {
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 18px;
+  }
+
+  .dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    border: none;
+    background: #CBD5E1;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .dot.active {
+    background: #701474;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .whatsapp {
+    width: 58px;
+    height: 58px;
+    bottom: 20px;
+    right: 20px;
+    font-size: 34px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-logo img {
+    height: 48px;
+  }
+
+  .footer-center {
+    font-size: 15px;
+  }
+
+  .footer-social {
+    gap: 20px;
+  }
+
+  .footer-social a {
+    font-size: 38px;
+  }
+}
+
+</style>
+
+</head>
+
+<!-- CHAT SIMPLES (TESTE) -->
+<!--
+  <div style="position:fixed; bottom:80px; right:20px;">
+  <input id="msg" placeholder="Digite algo">
+  <button onclick="send()">Enviar</button>
+</div>
+-->
+<script>
+/*
+async function send() {
+  const msg = document.getElementById("msg").value;
+
+  const res = await fetch("https://script.google.com/macros/s/AKfycbzzVytQlWqLBSYVwWNxu9Ny4exgA9yq6eSrNe-gY1upBYmIZfTtfu36QILNlbiGx1Kt/exec", {
+    method: "POST",
+    mode: "no-cors", // 🔥 ESSA LINHA RESOLVE
+    body: JSON.stringify({ message: msg })
+  });
+
+  const data = await res.json();
+
+  alert(data.reply);
+}
+*/
+</script>
+  
+<body>
+
+<header>
+  <div class="logo">
+    <a href="#">
+      <img src="logo.png" alt="KYBER IA">
+    </a>
+  </div>
+
+  <div class="menu-toggle" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="menu-mobile">
+  
+    <nav>
+      <a href="#solucoes">Soluções</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#como-funciona">Como Funciona</a>
+      <a href="#faq">Perguntas Frequentes</a>
+    </nav>
+  
+    <div class="actions">
+      <a class="btn-outline" href="#contato">Fale com a gente</a>
+      <a class="btn-primary" href="#sobre">Conheça a solução</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+<!--<span class="badge">🚀 Sovereign Business Orchestration</span>-->
+  <h1>Transforme sua organização com uma nova solução de IA</h1>
+  <p>Uma plataforma simples e inteligente que coloca o conhecimento da sua empresa ao alcance de todos, acelerando decisões, aumentando a produtividade e melhorando os resultados.
+  </p>
+  
+  <a class="btn" href="#contato"
+    style="margin-top: 30px; display: inline-block;">
+    Fale com nossos especialistas
+  </a>
+</section>
+
+<section class="section" id="solucoes">
+  <h2>Muito além de automação. Isso é engenharia de IA.</h2>
+
+  <div class="cards-solucoes" id="carrosselSolucoes">
+
+    <div class="slide-solucoes">
+
+      <div class="card-flip">
+        <div class="card-inner">
+          <div class="card-front">
+            <h3>🤖 Atendimento inteligente 24/7</h3>
+          </div>
+          <div class="card-back">
+            <p>Respostas rápidas, contextualizadas e humanizadas para clientes e equipes, sem depender de disponibilidade manual.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-flip">
+        <div class="card-inner">
+          <div class="card-front">
+            <h3>⚡ Gestão de demandas</h3>
+          </div>
+          <div class="card-back">
+            <p>Organização automática de tarefas, solicitações e ordens de serviço para garantir fluxo, prioridade e execução.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="slide-solucoes">
+
+      <div class="card-flip">
+        <div class="card-inner">
+          <div class="card-front">
+            <h3>🧠 Base de conhecimento</h3>
+          </div>
+          <div class="card-back">
+            <p>Centralização das informações da empresa para consultas rápidas, confiáveis e acessíveis por todos os times.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-flip">
+        <div class="card-inner">
+          <div class="card-front">
+            <h3>🔐 Regras corporativas</h3>
+          </div>
+          <div class="card-back">
+            <p>Aplicação rigorosa de políticas internas, critérios de aprovação e procedimentos operacionais com segurança.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="slide-solucoes">
+
+      <div class="card-flip">
+        <div class="card-inner">
+          <div class="card-front">
+            <h3>📊 Apoio à decisão</h3>
+          </div>
+          <div class="card-back">
+            <p>Transformação de dados e documentos em respostas claras para decisões mais rápidas, consistentes e bem informadas.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-flip">
+        <div class="card-inner">
+          <div class="card-front">
+            <h3>🔄 Automação de processos</h3>
+          </div>
+          <div class="card-back">
+            <p>Redução de tarefas repetitivas, retrabalho e etapas manuais por meio de fluxos inteligentes e integrados.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="slide-solucoes">
+
+      <div class="card-flip">
+        <div class="card-inner">
+          <div class="card-front">
+            <h3>📁 Consulta documental</h3>
+          </div>
+          <div class="card-back">
+            <p>Busca inteligente em manuais, normas, contratos, políticas e documentos internos com respostas objetivas.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-flip">
+        <div class="card-inner">
+          <div class="card-front">
+            <h3>🚀 Produtividade operacional</h3>
+          </div>
+          <div class="card-back">
+            <p>Mais velocidade, padronização e controle para que sua equipe foque no que realmente gera resultado.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="carousel-dots">
+    <button class="dot active" onclick="irParaSlide(0)"></button>
+    <button class="dot" onclick="irParaSlide(1)"></button>
+    <button class="dot" onclick="irParaSlide(2)"></button>
+    <button class="dot" onclick="irParaSlide(3)"></button>
+  </div>
+</section>
+
+<section class="section" id="sobre">
+  <h2>Infraestrutura real de Inteligência Artificial</h2>
+  <p>
+  O Kyber IA é um Kernel de Inteligência Artificial — uma camada central que organiza, valida e executa decisões com precisão.
+  Diferente de soluções comuns, ele não depende de terceiros, não expõe seus dados e não executa ações sem controle.
+  É a união entre a criatividade da IA e a precisão da engenharia de software.
+  </p>
+
+  <!-- 🎥 VÍDEO -->
+  <div style="
+    width:100%;
+    max-width:800px;
+    aspect-ratio:16/9;
+    margin:auto;
+  ">
+    <video controls poster="capa_video.png"
+      style="
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        border-radius:12px;
+      ">
+      
+      <source src="video.mp4" type="video/mp4">
+    
+    </video>
+  </div>
+  
+</section>
+  
+<section class="section" id="como-funciona">
+  <h2>Simples para usar. Poderoso por trás.</h2>
+  <p>Você não precisa aprender um sistema. Basta dizer o que precisa.
+  O Kyber IA entende sua intenção, organiza o raciocínio e executa a ação com segurança — conectando sistemas, validando regras e entregando resultados em tempo real. 
+  Deixe a complexidade técnica nos bastidores enquanto sua empresa opera com eficiência, controle total e redução de custos.</p>
+  
+  <!-- 📸 IMAGEM -->
+  <div style="margin-top:40px; display:flex; justify-content:center;">
+    <img src="novo_info_2.png"
+      onclick="abrirImagem(this.src)"
+      style="
+        width:100%;
+        max-width:800px;
+        border-radius:12px;
+        cursor:pointer;
+      ">
+  </div>
+  
+</section>
+
+<section class="section">
+  <h2>Resultados</h2>
+  
+
+
+  <div class="cards">
+    <div class="card">
+      <h3>+70%</h3>
+      <p>Aumento de produtividade.
+      Sua equipe dedicada ao que realmente importa.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>-50%</h3>
+      <p>Redução de custos operacionais.
+      Menos tarefas mecanicas e retrabalho.</p>
+    </div>
+
+    <div class="card">
+      <h3>24/7</h3>
+      <p>Atendimento automático 24 horas por dia.
+      Sua empresa sempre disponível para novos negócios.</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="faq">
+  <h2>Perguntas Frequentes</h2>
+
+  <div class="faq-container">
+
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>O que é o KYBER IA?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        A KYBER IA é uma empresa de inteligência artificial focada em automação e inovação. Ela oferece soluções completas para que marcas possam unificar informações, processar dados, automatizar processos e tomar decisões com mais assertividade.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>Preciso saber tecnologia para usar?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        Não. A proposta é ser simples para o usuário. A implementação técnica fica por nossa conta.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>Funciona com WhatsApp?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        Sim. O WhatsApp pode ser usado como canal de atendimento, consulta e execução de processos. 
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>Quais documentos podem ser utilizados?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        Manuais, normas internas, contratos, políticas, procedimentos, bases de conhecimento e documentos operacionais.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>Quanto tempo leva a implantação?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        Projetos iniciais podem ficar prontos em poucos dias, dependendo da quantidade de documentos, regras e integrações.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!--
+<section class="cta" id="contato">
+  <h2>Pronto para escalar seu negócio?</h2>
+  <p>Fale agora e receba um diagnóstico gratuito</p>
+  <a class="btn" href="mailto:comercial@kyber.ia.br">Enviar e-mail</a>
+</section>
+--> 
+
+
+<!-- WhatsApp -->
+<a class="whatsapp" href="https://wa.me/5561996583228" target="_blank">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+  <!-- Formulário -->
+<section id="contato" style="padding: 60px 20px; background: #701474; color: #FFFFFF;">
+  <h2 style="text-align:center; font-size: 32px; margin-bottom: 20px;">
+    Fale com a gente
+  </h2>
+
+  <form id="leadForm"
+        style="max-width: 500px; margin: auto; display: flex; flex-direction: column; gap: 15px;">
+    
+    <input type="hidden" name="_subject" value="Novo lead - Kyber IA">
+    
+    <input type="text" name="nome" placeholder="Nome" required 
+      style="padding:12px; border-radius:8px; border:1px solid #E2E8F0; background:#F8FAFC;">
+    
+    <input type="text" name="sobrenome" placeholder="Sobrenome" required 
+      style="padding:12px; border-radius:8px; border:1px solid #E2E8F0; background:#F8FAFC;">
+    
+    <input type="text" name="empresa" placeholder="Empresa" required 
+      style="padding:12px; border-radius:8px; border:1px solid #E2E8F0; background:#F8FAFC;">
+    
+    <input type="email" name="email" placeholder="E-mail" required
+      style="padding:12px; border-radius:8px; border:1px solid #E2E8F0; background:#F8FAFC;">
+
+    <input type="text" name="telefone" placeholder="Telefone" 
+      style="padding:12px; border-radius:8px; border:1px solid #E2E8F0; background:#F8FAFC;">
+
+    <textarea name="mensagem" placeholder="Como podemos te ajudar?" required
+      style="padding:12px; border-radius:8px; border:1px solid #E2E8F0; background:#F8FAFC;"></textarea>
+
+    <button id="submitBtn" type="submit" style="
+      padding: 14px;
+      background: #F8FAFC;
+      color: #701474;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    ">
+      Enviar mensagem
+    </button>
+
+    <p id="formMsg" style="text-align:center; margin-top:10px; font-weight:500;"></p>
+    
+  </form>
+</section>
+
+<footer class="footer-kyber">
+
+  <div class="footer-content">
+
+    <!-- LOGO -->
+    <div class="footer-logo">
+      <img src="logo.png" alt="KYBER IA">
+    </div>
+
+    <!-- TEXTO -->
+    <div class="footer-center">
+      © 2026 KYBER IA. Todos os direitos reservados.<br>
+      Brasília - DF
+    </div>
+
+    <!-- REDES -->
+    <div class="footer-social">
+
+      <a href="https://instagram.com/kyber.ia/"
+         target="_blank">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+
+      <a href="https://linkedin.com/company/kyber-ia/"
+         target="_blank">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+
+      <a href="https://youtube.com/@KyberIA-v7l/"
+         target="_blank">
+        <i class="fa-brands fa-youtube"></i>
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+  
+<script>
+document.getElementById("leadForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const btn = document.getElementById("submitBtn");
+  const msg = document.getElementById("formMsg");
+
+  btn.disabled = true;
+  btn.innerText = "Enviando...";
+  msg.innerHTML = "";
+
+  const data = {
+    nome: form.nome.value,
+    sobrenome: form.sobrenome.value,
+    empresa: form.empresa.value,
+    email: form.email.value,
+    telefone: form.telefone.value,
+    mensagem: form.mensagem.value
+  };
+
+  try {
+    const res = await fetch("https://formspree.io/f/xnjgwlgz", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(data)
+    });
+
+    if (res.ok) {
+      msg.innerHTML = "✅ Mensagem enviada com sucesso!";
+      msg.style.color = "#FFFFFF";
+      form.reset();
+    } else {
+      msg.innerHTML = "❌ Erro ao enviar. Tente novamente.";
+      msg.style.color = "#FFD1D1";
+    }
+
+  } catch (error) {
+    msg.innerHTML = "❌ Erro de conexão.";
+    msg.style.color = "#FFD1D1";
+  }
+
+  btn.disabled = false;
+  btn.innerText = "Enviar mensagem";
+});
+</script>
+
+<!-- 🖼️ MODAL IMAGEM -->
+<div id="modalImagem" style="
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.9);
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+">
+
+  <span onclick="fecharImagem()" style="
+    position:absolute;
+    top:20px;
+    right:30px;
+    font-size:40px;
+    color:white;
+    cursor:pointer;
+  ">&times;</span>
+
+  <img id="imgExpandida" style="
+    max-width:90%;
+    max-height:90%;
+    border-radius:12px;
+  ">
+
+</div>
+
+<script>
+function abrirImagem(src) {
+  document.getElementById("modalImagem").style.display = "flex";
+  document.getElementById("imgExpandida").src = src;
+}
+
+function fecharImagem() {
+  document.getElementById("modalImagem").style.display = "none";
+}
+</script>
+
+<script>
+function toggleMenu() {
+  document.querySelector(".menu-mobile").classList.toggle("active");
+}
+</script>
+  
+<script>
+document.querySelectorAll(".faq-question").forEach(function(botao) {
+  botao.addEventListener("click", function() {
+    botao.parentElement.classList.toggle("active");
+  });
+});
+</script>
+
+<script>
+const slidesSolucoes = document.querySelectorAll(".slide-solucoes");
+const dotsSolucoes = document.querySelectorAll(".dot");
+const areaSolucoes = document.getElementById("carrosselSolucoes");
+
+let slideAtual = 0;
+let toqueInicioX = 0;
+let toqueFimX = 0;
+
+function irParaSlide(index) {
+  if (index < 0) index = 0;
+  if (index > slidesSolucoes.length - 1) index = slidesSolucoes.length - 1;
+
+  slideAtual = index;
+
+  slidesSolucoes.forEach(function(slide, i) {
+    slide.classList.toggle("active", i === slideAtual);
+  });
+
+  dotsSolucoes.forEach(function(dot, i) {
+    dot.classList.toggle("active", i === slideAtual);
+  });
+}
+
+dotsSolucoes.forEach(function(dot, index) {
+  dot.addEventListener("click", function() {
+    irParaSlide(index);
+  });
+});
+
+areaSolucoes.addEventListener("touchstart", function(e) {
+  toqueInicioX = e.changedTouches[0].screenX;
+});
+
+areaSolucoes.addEventListener("touchend", function(e) {
+  toqueFimX = e.changedTouches[0].screenX;
+
+  if (toqueInicioX - toqueFimX > 50) {
+    irParaSlide(slideAtual + 1);
+  }
+
+  if (toqueFimX - toqueInicioX > 50) {
+    irParaSlide(slideAtual - 1);
+  }
+});
+
+irParaSlide(0);
+</script>
+
+</body>
+</html>
+
+
+/* =========================
+   HEADER / MENU
+========================= */
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 32px;
+  position: sticky;
+  top: 0;
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.logo img {
+  height: 44px;
+}
+
+.menu-mobile {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  transition: all 0.3s ease;
+  border-radius: 0 0 16px 16px;
+  overflow: hidden;
+}
+
+nav {
+  display: flex;
+  gap: 18px;
+  margin-left: 30px;
+}
+
+nav a {
+   color: #0F172A;
+   text-decoration: none;
+   font-weight: 500;
+   font-size: 14px;
+   white-space: nowrap;
+}
+
+nav a:hover {
+  color: #701474;
+}
+
+.actions {
+  display: flex;
+  gap: 15px;
+}
+
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: #0F172A;
+  margin: 5px 0;
+  border-radius: 2px;
+}
+
+
+/* =========================
+   BOTÕES
+========================= */
+
+.btn {
+  background: white;
+  color: #701474;
+  padding: 14px 30px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.btn-primary {
+   background: #701474;
+   color: white;
+   padding: 8px 14px;
+   border-radius: 8px;
+   text-decoration: none;
+   font-weight: bold;
+   font-size: 14px;
+   white-space: nowrap;
+}
+
+.btn-outline {
+   border: 1px solid #701474;
+   color: #701474;
+   padding: 8px 14px;
+   border-radius: 8px;
+   text-decoration: none;
+   font-size: 14px;
+   white-space: nowrap;
+}
+
+
+/* =========================
+   HERO - PADRÃO NOTEBOOK
+========================= */
+
+.hero {
+  position: relative;
+  text-align: center;
+  padding: 220px 20px 50px;
+  min-height: 93vh;
+  color: white;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.08) 75%,
+      rgba(248,250,252,0.15) 90%,
+      #F8FAFC 100%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(112,20,116,0.08),
+      rgba(112,20,116,0.08)
+    ),
+    url('hero-bg.jpg') center top / 100% auto no-repeat;
+
+  overflow: hidden;
+  box-shadow: inset 0 -80px 80px -40px #F8FAFC;
+  filter: brightness(1.08) contrast(1.08) saturate(1.15);
+  background-blend-mode: normal, soft-light, normal;
+}
+
+.hero * {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 28px;
+  line-height: 1.15;
+  font-weight: 700;
+  text-shadow:
+    0 2px 4px rgba(0,0,0,0.5),
+    0 8px 30px rgba(0,0,0,0.4);
+  
+    max-width: 900px;
+  margin: 0 auto;
+}
+
+.hero p {
+  color: #FFFFFF;
+
+  font-size: 17px;
+  font-weight: 600;
+
+  text-shadow:
+    0 2px 6px rgba(0,0,0,0.95),
+    0 4px 12px rgba(0,0,0,0.85),
+    0 8px 24px rgba(0,0,0,0.75);
+
+  max-width: 800px;
+  margin: 20px auto 0;
+}
+
+
+/* =========================
+   SEÇÕES
+========================= */
+
+.section {
+  padding: 80px 20px;
+  text-align: center;
+  background: #F8FAFC;
+  margin-top: 0;
+}
+
+
+/* =========================
+   CARDS DE SOLUÇÕES
+========================= */
+
+.cards-solucoes {
+  display: grid;
+  grid-template-columns: repeat(4, 200px);
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+}
+
 .card-flip {
   height: 220px;
   perspective: 1000px;
