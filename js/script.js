@@ -47,37 +47,6 @@ document.getElementById("leadForm").addEventListener("submit", async function(e)
 });
 </script>
 
-<!-- 🖼️ MODAL IMAGEM -->
-<div id="modalImagem" style="
-  display:none;
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.9);
-  justify-content:center;
-  align-items:center;
-  z-index:9999;
-">
-
-  <span onclick="fecharImagem()" style="
-    position:absolute;
-    top:20px;
-    right:30px;
-    font-size:40px;
-    color:white;
-    cursor:pointer;
-  ">&times;</span>
-
-  <img id="imgExpandida" style="
-    max-width:90%;
-    max-height:90%;
-    border-radius:12px;
-  ">
-
-</div>
-
 <script>
 function abrirImagem(src) {
   document.getElementById("modalImagem").style.display = "flex";
