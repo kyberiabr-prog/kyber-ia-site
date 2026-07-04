@@ -828,3 +828,113 @@ footer {
     box-shadow: none;
   }
 }
+
+/* =========================
+   PÁGINAS INSTITUCIONAIS
+   Origem / Manifesto
+========================= */
+
+.pagina-institucional {
+  background: #F8FAFC;
+  color: #0F172A;
+}
+
+.hero-institucional {
+  padding: 120px 20px 80px;
+  text-align: center;
+  background:
+    radial-gradient(circle at top, rgba(112,20,116,0.14), transparent 45%),
+    #F8FAFC;
+}
+
+.container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.pagina-tag {
+  display: inline-block;
+  margin-bottom: 18px;
+  color: #701474;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.hero-institucional h1 {
+  margin: 0;
+  font-size: 56px;
+  line-height: 1.05;
+  color: #0F172A;
+}
+
+.subtitulo-pagina {
+  max-width: 680px;
+  margin: 24px auto 0;
+  font-size: 22px;
+  line-height: 1.5;
+  color: #475569;
+}
+
+.conteudo-institucional {
+  padding: 80px 20px 120px;
+}
+
+.texto-institucional {
+  max-width: 760px;
+}
+
+.texto-institucional p {
+  font-size: 20px;
+  line-height: 1.85;
+  color: #334155;
+  margin: 0 0 28px;
+}
+
+.texto-institucional strong {
+  color: #701474;
+}
+
+.frase-destaque {
+  margin: 70px auto;
+  padding: 40px 0;
+  max-width: 900px;
+  font-size: 40px;
+  line-height: 1.18;
+  font-weight: 700;
+  text-align: center;
+  color: #701474;
+  border-top: 1px solid #E2E8F0;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+  .hero-institucional {
+    padding: 90px 20px 60px;
+  }
+
+  .hero-institucional h1 {
+    font-size: 42px;
+  }
+
+  .subtitulo-pagina {
+    font-size: 18px;
+  }
+
+  .conteudo-institucional {
+    padding: 60px 20px 90px;
+  }
+
+  .texto-institucional p {
+    font-size: 18px;
+    line-height: 1.75;
+  }
+
+  .frase-destaque {
+    font-size: 28px;
+    margin: 50px auto;
+  }
+}
