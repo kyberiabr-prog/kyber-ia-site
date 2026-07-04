@@ -1,53 +1,55 @@
-document.getElementById("leadForm").addEventListener("submit", async function(e) {
-  e.preventDefault();
+const leadForm = document.getElementById("leadForm");
 
-  const form = e.target;
-  const btn = document.getElementById("submitBtn");
-  const msg = document.getElementById("formMsg");
+if (leadForm) {
+  leadForm.addEventListener("submit", async function(e) {
+    e.preventDefault();
 
-  btn.disabled = true;
-  btn.innerText = "Enviando...";
-  msg.innerHTML = "";
+    const form = e.target;
+    const btn = document.getElementById("submitBtn");
+    const msg = document.getElementById("formMsg");
 
-  const data = {
-    nome: form.nome.value,
-    sobrenome: form.sobrenome.value,
-    empresa: form.empresa.value,
-    email: form.email.value,
-    telefone: form.telefone.value,
-    mensagem: form.mensagem.value
-  };
+    btn.disabled = true;
+    btn.innerText = "Enviando...";
+    msg.innerHTML = "";
 
-  try {
-    const res = await fetch("https://formspree.io/f/xnjgwlgz", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body: JSON.stringify(data)
-    });
+    const data = {
+      nome: form.nome.value,
+      sobrenome: form.sobrenome.value,
+      empresa: form.empresa.value,
+      email: form.email.value,
+      telefone: form.telefone.value,
+      mensagem: form.mensagem.value
+    };
 
-    if (res.ok) {
-      msg.innerHTML = "✅ Mensagem enviada com sucesso!";
-      msg.style.color = "#FFFFFF";
-      form.reset();
-    } else {
-      msg.innerHTML = "❌ Erro ao enviar. Tente novamente.";
+    try {
+      const res = await fetch("https://formspree.io/f/xnjgwlgz", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (res.ok) {
+        msg.innerHTML = "✅ Mensagem enviada com sucesso!";
+        msg.style.color = "#FFFFFF";
+        form.reset();
+      } else {
+        msg.innerHTML = "❌ Erro ao enviar. Tente novamente.";
+        msg.style.color = "#FFD1D1";
+      }
+
+    } catch (error) {
+      msg.innerHTML = "❌ Erro de conexão.";
       msg.style.color = "#FFD1D1";
     }
 
-  } catch (error) {
-    msg.innerHTML = "❌ Erro de conexão.";
-    msg.style.color = "#FFD1D1";
-  }
+    btn.disabled = false;
+    btn.innerText = "Enviar mensagem";
+  });
+}
 
-  btn.disabled = false;
-  btn.innerText = "Enviar mensagem";
-});
-</script>
-
-<script>
 function abrirImagem(src) {
   document.getElementById("modalImagem").style.display = "flex";
   document.getElementById("imgExpandida").src = src;
@@ -56,23 +58,17 @@ function abrirImagem(src) {
 function fecharImagem() {
   document.getElementById("modalImagem").style.display = "none";
 }
-</script>
 
-<script>
 function toggleMenu() {
   document.querySelector(".menu-mobile").classList.toggle("active");
 }
-</script>
-  
-<script>
+
 document.querySelectorAll(".faq-question").forEach(function(botao) {
   botao.addEventListener("click", function() {
     botao.parentElement.classList.toggle("active");
   });
 });
-</script>
 
-<script>
 const slidesSolucoes = document.querySelectorAll(".slide-solucoes");
 const dotsSolucoes = document.querySelectorAll(".dot");
 const areaSolucoes = document.getElementById("carrosselSolucoes");
@@ -82,6 +78,8 @@ let toqueInicioX = 0;
 let toqueFimX = 0;
 
 function irParaSlide(index) {
+  if (!slidesSolucoes.length) return;
+
   if (index < 0) index = 0;
   if (index > slidesSolucoes.length - 1) index = slidesSolucoes.length - 1;
 
@@ -102,26 +100,26 @@ dotsSolucoes.forEach(function(dot, index) {
   });
 });
 
-areaSolucoes.addEventListener("touchstart", function(e) {
-  toqueInicioX = e.changedTouches[0].screenX;
-});
+if (areaSolucoes) {
+  areaSolucoes.addEventListener("touchstart", function(e) {
+    toqueInicioX = e.changedTouches[0].screenX;
+  });
 
-areaSolucoes.addEventListener("touchend", function(e) {
-  toqueFimX = e.changedTouches[0].screenX;
+  areaSolucoes.addEventListener("touchend", function(e) {
+    toqueFimX = e.changedTouches[0].screenX;
 
-  if (toqueInicioX - toqueFimX > 50) {
-    irParaSlide(slideAtual + 1);
-  }
+    if (toqueInicioX - toqueFimX > 50) {
+      irParaSlide(slideAtual + 1);
+    }
 
-  if (toqueFimX - toqueInicioX > 50) {
-    irParaSlide(slideAtual - 1);
-  }
-});
+    if (toqueFimX - toqueInicioX > 50) {
+      irParaSlide(slideAtual - 1);
+    }
+  });
 
-irParaSlide(0);
-</script>
+  irParaSlide(0);
+}
 
-<script>
 function toggleQuemSomos(event) {
   event.stopPropagation();
   document.querySelector(".menu-dropdown").classList.toggle("active");
@@ -133,4 +131,3 @@ document.addEventListener("click", function() {
     dropdown.classList.remove("active");
   }
 });
-
